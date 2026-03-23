@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Blood Pressure Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .trust-badge {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 25px;
+            margin: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .trust-badge-icon {
+            font-size: 3em;
+            color: #4caf50;
+        }
+
+        .trust-badge-content h2 {
+            color: #2e7d32;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+
+        .trust-badge-content p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid;
+        }
+
+        .section.blue { border-color: #2196F3; }
+        .section.green { border-color: #4CAF50; }
+        .section.purple { border-color: #9C27B0; }
+        .section.orange { border-color: #FF9800; }
+        .section.cyan { border-color: #00BCD4; }
+        .section.red { border-color: #F44336; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section-icon {
+            font-size: 2em;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .section.blue .section-icon { background: #E3F2FD; color: #2196F3; }
+        .section.green .section-icon { background: #E8F5E9; color: #4CAF50; }
+        .section.purple .section-icon { background: #F3E5F5; color: #9C27B0; }
+        .section.orange .section-icon { background: #FFF3E0; color: #FF9800; }
+        .section.cyan .section-icon { background: #E0F7FA; color: #00BCD4; }
+        .section.red .section-icon { background: #FFEBEE; color: #F44336; }
+
+        .section h2 {
+            font-size: 1.5em;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .section li:before {
+            content: "•";
+            position: absolute;
+            left: 10px;
+            font-size: 1.5em;
+            line-height: 1;
+        }
+
+        .section.blue li:before { color: #2196F3; }
+        .section.green li:before { color: #4CAF50; }
+        .section.purple li:before { color: #9C27B0; }
+        .section.orange li:before { color: #FF9800; }
+        .section.cyan li:before { color: #00BCD4; }
+        .section.red li:before { color: #F44336; }
+
+        .highlight {
+            background: #fff9c4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 40px;
+            text-align: center;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .footer p {
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .footer .date {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .contact {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .contact h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .contact a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .trust-badge {
+                flex-direction: column;
+                text-align: center;
+                margin: 20px;
+            }
+
+            .footer {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Privacy Policy</h1>
+            <p>Your privacy is our top priority. Learn how we protect and handle your health data.</p>
+        </div>
+
+        <div class="trust-badge">
+            <div class="trust-badge-icon">🛡️</div>
+            <div class="trust-badge-content">
+                <h2>100% Private & Secure</h2>
+                <p>Your data stays on your device. We never share, sell, or analyze your personal health information.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section blue">
+                <div class="section-header">
+                    <div class="section-icon">📄</div>
+                    <h2>Information We Collect</h2>
+                </div>
+                <ul>
+                    <li>Blood pressure readings (systolic, diastolic, pulse)</li>
+                    <li>Medication information (name, dosage, frequency)</li>
+                    <li>Medication log entries and timestamps</li>
+                    <li>Optional notes you add to readings</li>
+                    <li>App settings and preferences</li>
+                </ul>
+            </div>
+
+            <div class="section green">
+                <div class="section-header">
+                    <div class="section-icon">💾</div>
+                    <h2>How We Store Your Data</h2>
+                </div>
+                <ul>
+                    <li>All data is stored <span class="highlight">locally on your device</span> using Apple's SwiftData framework</li>
+                    <li>Data is encrypted using industry-standard encryption</li>
+                    <li>Optional iCloud sync keeps your data synchronized across your Apple devices</li>
+                    <li>iCloud data is encrypted both in transit and at rest</li>
+                    <li>You maintain full control over your iCloud data</li>
+                </ul>
+            </div>
+
+            <div class="section purple">
+                <div class="section-header">
+                    <div class="section-icon">✨</div>
+                    <h2>How We Use Your Data</h2>
+                </div>
+                <ul>
+                    <li>Display your health trends and statistics within the app</li>
+                    <li>Generate personalized insights about your blood pressure patterns</li>
+                    <li>Send you reminder notifications (if enabled)</li>
+                    <li>Create exportable reports for sharing with healthcare providers</li>
+                    <li>Your data is <span class="highlight">NEVER</span> used for advertising or marketing</li>
+                </ul>
+            </div>
+
+            <div class="section orange">
+                <div class="section-header">
+                    <div class="section-icon">🚫</div>
+                    <h2>Data Sharing</h2>
+                </div>
+                <ul>
+                    <li>We <span class="highlight">DO NOT</span> share your data with third parties</li>
+                    <li>We <span class="highlight">DO NOT</span> sell your data to anyone</li>
+                    <li>We <span class="highlight">DO NOT</span> use your data for analytics or tracking</li>
+                    <li>Data only leaves your device when you explicitly export it</li>
+                    <li>iCloud sync is handled entirely by Apple's secure infrastructure</li>
+                </ul>
+            </div>
+
+            <div class="section cyan">
+                <div class="section-header">
+                    <div class="section-icon">👤</div>
+                    <h2>Your Rights</h2>
+                </div>
+                <ul>
+                    <li>Access all your data at any time within the app</li>
+                    <li>Export your data in PDF or CSV format</li>
+                    <li>Delete individual readings or medications</li>
+                    <li>Clear all data permanently from Settings</li>
+                    <li>Disable iCloud sync at any time in device settings</li>
+                </ul>
+            </div>
+
+            <div class="section red">
+                <div class="section-header">
+                    <div class="section-icon">🔒</div>
+                    <h2>Security Measures</h2>
+                </div>
+                <ul>
+                    <li>Data encryption using Apple's security frameworks</li>
+                    <li>Secure local storage with device-level protection</li>
+                    <li>No external servers or databases</li>
+                    <li>App runs entirely on-device</li>
+                    <li>Face ID/Touch ID support for app access (optional)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="date">Last Updated: January 2026</p>
+            <p>We may update this policy from time to time. We will notify you of any changes by updating the date above and posting the new Privacy Policy on this page.</p>
+            
+            <div class="contact">
+                <h3>Contact Us</h3>
+                <p>If you have any questions about this Privacy Policy, please contact us:</p>
+                <p><a href="mailto:johnzhaodev@gmail.com">johnzhaodev@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Pressure Tracker - Monitor Your Heart Health</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Nav */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(10, 10, 10, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-logo .icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #ff2d55, #ff6b8a);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 80px;
+            background: radial-gradient(ellipse at top, rgba(255, 45, 85, 0.15) 0%, transparent 60%);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 45, 85, 0.15);
+            border: 1px solid rgba(255, 45, 85, 0.3);
+            color: #ff6b8a;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2em, 5vw, 3.8em);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #ff2d55, #ff9f0a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.15em;
+            color: rgba(255,255,255,0.6);
+            max-width: 520px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #ff2d55, #ff6b8a);
+            color: white;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: 700;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 30px rgba(255, 45, 85, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(255, 45, 85, 0.5);
+        }
+
+        .cta-button .apple-icon {
+            font-size: 1.3em;
+        }
+
+        /* Features */
+        .features {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            text-align: center;
+            color: #ff6b8a;
+            font-size: 0.85em;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.6em, 3vw, 2.4em);
+            font-weight: 800;
+            margin-bottom: 60px;
+            color: #fff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 30px;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .feature-card:hover {
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(255, 45, 85, 0.3);
+        }
+
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .feature-card p {
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.6;
+        }
+
+        /* Privacy strip */
+        .privacy-strip {
+            background: rgba(255,255,255,0.03);
+            border-top: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            padding: 60px 20px;
+        }
+
+        .privacy-strip-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .privacy-item .privacy-emoji {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .privacy-item h4 {
+            font-size: 0.95em;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+
+        .privacy-item p {
+            font-size: 0.82em;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            color: rgba(255,255,255,0.35);
+            font-size: 0.85em;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: #ff6b8a;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 16px 20px;
+            }
+
+            .hero {
+                padding: 70px 20px 60px;
+            }
+
+            .features {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-logo">
+            <div class="icon">❤️</div>
+            BP Tracker
+        </a>
+        <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">Available on iPhone & iPad</div>
+        <h1>Track Your Blood Pressure,<br><span>Stay on Top of Your Health</span></h1>
+        <p>A simple, private app to log blood pressure readings, manage medications, and understand your heart health trends — all on your device.</p>
+        <a href="#" class="cta-button">
+            <span class="apple-icon">🍎</span>
+            Download on the App Store
+        </a>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <p class="section-label">Features</p>
+        <h2 class="section-title">Everything you need, nothing you don't</h2>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(255,45,85,0.15); color: #ff2d55;">📊</div>
+                <h3>Blood Pressure Logging</h3>
+                <p>Quickly log systolic, diastolic, and pulse readings. View trends over time with clear, easy-to-read charts.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(255,159,10,0.15); color: #ff9f0a;">💊</div>
+                <h3>Medication Management</h3>
+                <p>Track your medications, dosages, and schedules. Log when you take them and never miss a dose.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(48,209,88,0.15); color: #30d158;">📈</div>
+                <h3>Statistics & Insights</h3>
+                <p>Understand your blood pressure patterns with averages, category breakdowns, and historical comparisons.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(10,132,255,0.15); color: #0a84ff;">🔔</div>
+                <h3>Smart Reminders</h3>
+                <p>Set reminders to measure your blood pressure or take medications at the right time, every day.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(94,92,230,0.15); color: #5e5ce6;">📤</div>
+                <h3>Export Reports</h3>
+                <p>Export your data as PDF or CSV to share with your doctor or keep for your own records.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(100,210,255,0.15); color: #64d2ff;">☁️</div>
+                <h3>iCloud Sync</h3>
+                <p>Optionally sync your data across all your Apple devices with end-to-end encrypted iCloud sync.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy strip -->
+    <div class="privacy-strip">
+        <div class="privacy-strip-inner">
+            <div class="privacy-item">
+                <div class="privacy-emoji">🔒</div>
+                <h4>Local-First Storage</h4>
+                <p>All data lives on your device. No external servers.</p>
+            </div>
+            <div class="privacy-item">
+                <div class="privacy-emoji">🚫</div>
+                <h4>No Tracking</h4>
+                <p>Zero analytics, zero ads, zero data collection.</p>
+            </div>
+            <div class="privacy-item">
+                <div class="privacy-emoji">👁️‍🗨️</div>
+                <h4>Only You Can See It</h4>
+                <p>Your health data is yours. We never access it.</p>
+            </div>
+            <div class="privacy-item">
+                <div class="privacy-emoji">📱</div>
+                <h4>Works Offline</h4>
+                <p>Full functionality without an internet connection.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="mailto:johnzhaodev@gmail.com">Contact</a>
+        </div>
+        <p>© 2026 BP Tracker. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
